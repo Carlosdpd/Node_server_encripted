@@ -1,0 +1,23 @@
+import java.security.PrivateKey;
+import java.security.PublicKey;
+
+
+public class Client {
+	public static void main(String [ ] args)
+	{
+	    try
+	    {
+	        PublicKey publicKey = readPublicKey("/home/carlos/Desktop/public_key.der");
+	        PrivateKey privateKey = readPrivateKey("/home/carlos/Desktop/private_key.der");
+	        byte[] message = "abc".getBytes("UTF8");
+	        byte[] secret = encrypt(publicKey, message);
+	        System.out.println(new String(secret, "UTF8"));
+	        byte[] recovered_message = decrypt(privateKey, secret);
+	        System.out.println(new String(recovered_message, "UTF8"));
+	    }
+	    catch (Exception e)
+	    {
+	        e.printStackTrace();
+	    }
+	}
+}

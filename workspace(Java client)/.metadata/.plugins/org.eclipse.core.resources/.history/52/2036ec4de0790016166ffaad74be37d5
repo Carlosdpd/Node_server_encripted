@@ -1,0 +1,32 @@
+import java.io.*;
+import java.security.*;
+import java.security.spec.*;
+
+import sun.misc.BASE64Decoder;
+
+public class ReadPublicKey {
+    public static void main(String[] args) throws Exception {
+	// read key bytes
+	FileInputStream in = new FileInputStream("mykey.pem.pub");
+	byte[] keyBytes = new byte[in.available()];
+	in.read(keyBytes);
+	in.close();
+
+	String pubKey = new String(keyBytes, "UTF-8");
+	pubKey = pubKey.replaceAll("(-+BEGIN PUBLIC KEY-+\\r?\\n|-+END PUBLIC KEY-+\\r?\\n?)", "");
+
+	// don't use this for real projects!
+	BASE64Decoder decoder = new BASE64Decoder();
+	keyBytes = decoder.decodeBuffer(pubKey);
+
+	// generate public key
+	X509EncodedKeySpec spec = new X509EncodedKeySpec(keyBytes);
+	KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+	PublicKey publicKey = keyFactory.generatePublic(spec);
+
+	System.out.println(
+	    String.format("Key format: %s, algorithm: %s",
+		    publicKey.getFormat(),
+		    publicKey.getAlgorithm()));
+    }
+}

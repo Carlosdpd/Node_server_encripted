@@ -1,0 +1,7 @@
+.tmp
+build
+bower_components
+node_components
+node_modules
+*.sh
+.DS_Store

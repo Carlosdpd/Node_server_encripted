@@ -1,0 +1,47 @@
+<section id="dashboard-view" class="mainbar">
+  <section class="matter">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="today-datas">
+            <li class="blightblue">
+              <div class="pull-left"><i class="fa fa-plane"></i></div>
+              <div class="datas-text pull-right">
+                <span class="bold">May 18 - 19, 2015</span> Castle Resort, Neverland
+              </div>
+              <div class="clearfix"></div>
+            </li>
+            <li class="borange">
+              <div class="pull-left"><i class="fa fa-envelope"></i></div>
+              <div class="datas-text pull-right">
+                <span class="bold">{{vm.messageCount}}</span> Messages
+              </div>
+              <div class="clearfix"></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+            <div class="blightblue2">
+                <span class="bold">Login</span>
+                <form class="formclass" ng-submit="vm.createAndSendJson()">
+                    Username: <input type="text" ng-model="vm.name">
+                    Password: <input type="password" ng-model="vm.password">
+                    <input type="submit">
+                </form>
+            </div>
+        </div>
+        </div>
+        <span class="bred">{{vm.user.message}}</span>
+        <div class="redContainer">
+            <span class="bred">{{vm.user.first_name}}</span><br>
+            <span class="bred">{{vm.user.last_name}}</span><br>
+            <span class="bred">{{vm.user.address}}</span><br>
+            <span class="bred">{{vm.user.email}}</span><br>
+        </div>
+        <div class="col-md-6">
+      </div>
+    </div>
+  </section>
+</section>
