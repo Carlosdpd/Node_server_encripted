@@ -32,7 +32,7 @@ public class NetClientPost {
 		conn.setRequestMethod("POST");
 		conn.setRequestProperty("Content-Type", "application/json");
 
-		String input = "{\"username\":\"carlosdpd\", \"password\":\"238947\"}";
+		String input = "{\"username\":\"USERNAME\", \"password\":\"PASSWORD\"}";
         PublicKey publicKey = Test.readPublicKey("/home/carlos/Desktop/public_key.der");
         byte[] message = input.getBytes("UTF8");
         byte[] secret = Test.encrypt(publicKey, message);
