@@ -1,3 +1,6 @@
+# This project serves as en example for NodeJS server that processes HTTP requests and makes ecryption and decryption tasks, as well as saving/editing users in a database.
+
+
 # App Base projects
 
 ## Prerequisites
